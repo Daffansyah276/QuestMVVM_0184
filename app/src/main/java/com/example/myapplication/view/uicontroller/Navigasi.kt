@@ -29,4 +29,13 @@ fun SiswaApp(
     viewModel: SiswaViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
     // FIX 1: Removed 'collectAsState: Any.() -> Unit' from parameters
-)
+){
+    Scaffold(
+        modifier = modifier // FIX 3: Apply the modifier to the Scaffold
+    ) { isiRuang ->
+        val uiState = viewModel.statusUI.collectAsState()
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Formulir.name,
+            modifier = Modifier.padding(isiRuang)
+        ) 
