@@ -22,3 +22,11 @@ enum class Navigasi {
     Detail
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SiswaApp(
+    modifier: Modifier = Modifier, // FIX 3: Give modifier a default value
+    viewModel: SiswaViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+    // FIX 1: Removed 'collectAsState: Any.() -> Unit' from parameters
+)
